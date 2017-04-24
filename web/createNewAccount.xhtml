@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create a New Account</title>
+    </h:head>
+    <h:body>
+       <f:view>           
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputText value="Name"/> <h:inputText id="name" value="#{newAccount.name}"/> 
+                    <h:message for="name" />
+                    
+                    <h:outputText value="Username"/> <h:inputText id="username" value="#{newAccount.username}"/> 
+                    <h:message for="username" />
+                    
+                    <h:outputText value="Password"/> <h:inputSecret id="password" value="#{newAccount.password}"/> 
+                    <h:message for="password" />
+
+                    <h:outputText value="Bank Account Number:"/> <h:inputText id="bankaccountnumber" value="#{newAccount.bankaccountnumber}"/> 
+                    <h:message for="bankaccountnumber" />
+                    
+                    <h:outputText value="Debit Card Number:"/> <h:inputText id="debitcardnumber" value="#{newAccount.debitcardnumber}"/> 
+                    <h:message for="debitcardnumber" />
+
+                    <h:outputText value="Credit Card Number:"/> <h:inputText id="creditcardnumber" value="#{newAccount.creditcardnumber}"/> 
+                    <h:message for="creditcardnumber" />
+                    
+                    <h:outputText value="Email ID*:"/> <h:inputText id="email_id" value="#{newAccount.emailid}"/> 
+                    <h:message for="emailid" />
+                    
+                     <h:outputText value="Phone Number:"/> <h:inputText id="phonenumber" value="#{newAccount.phonenumber}"/> 
+                    <h:message for="phonenumber" />  
+                </h:panelGrid>
+                
+                <br/>
+                Gender*:
+                <h:selectOneRadio  value="#{newAccount.gender}" layout="lineDirection">
+                    <f:selectItem itemValue="M" itemLabel="M"/>
+                    <f:selectItem itemValue="F" itemLabel="F"/>
+                </h:selectOneRadio>
+                
+                <h:commandButton value="Create Account" action="newAccountCheck.xhtml"/>
+                <br/>
+                <h:commandButton value="Cancel" action="homePage.xhtml"/>
+            </h:form>
+        </f:view>
+    </h:body>
+    
+    
+    
+     <h:body>
+        
+    </h:body>
+    
+    
+    
+    
+    
+</html>
+

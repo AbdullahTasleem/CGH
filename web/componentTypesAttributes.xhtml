@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Components Page</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+        <script type="text/javascript" src="scripts/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript">
+            function notify() {
+                alert("A notification has been sent to the owner, he will contact you soon #{loginInfo.username}");
+            }
+       </script>
+    </h:head>
+    <h:body>
+        <h3>PC Gaming Components </h3>
+        <f:view>
+            <h:form>
+        
+        <table border="1"  title="HI">
+               <caption>#{comp.typename} Specs</caption>
+                <c:forEach var="temp" items="#{comp.typesByComponent}" >      
+                     <tr>
+                        <th>#{temp.name}</th>
+                        <td>#{temp.attdescription}</td>
+                        
+                        </tr>
+                   
+                </c:forEach>
+        </table>
+                <h:commandButton value="Buy"  onclick="notify()"></h:commandButton>
+                <p></p>
+        <p>Still not sure if this is for you ? Would you like to compare #{comp.typename} with another #{comp.compName} ?:
+                <h:selectOneMenu value="#{comp.typeid2}">
+                    <f:selectItems value="#{comp.types}"/>
+                </h:selectOneMenu>
+                    <h:commandButton value="Go!" action="compareComponents.xhtml"/>
+                    <p><h:commandButton value="Go to previous page!" action="componentsPage.xhtml"/></p>
+                </p>
+                </h:form>
+           </f:view>
+    </h:body>
+</html>
+

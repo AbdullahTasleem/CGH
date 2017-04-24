@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Components Page</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+    </h:head>
+    <h:body>
+        <h3>PC Gaming Components </h3>
+        <f:view>
+            <h:form>
+                Select an component you wish to view/buy :
+                <h:selectOneMenu value="#{comp.compid}">
+                    <f:selectItems value="#{comp.components}"/>
+                </h:selectOneMenu>
+                <h:commandButton value="Go!" action="#{comp.reload()}" />
+                
+                
+                <p>Select a Type of #{comp.compName}:
+                <h:selectOneMenu value="#{comp.typeid}">
+                    <f:selectItems value="#{comp.types}"/>
+                </h:selectOneMenu>
+                    <h:commandButton value="Go!" action="componentTypesAttributes.xhtml"/>
+                </p> 
+                <p><h:commandButton value="Go to previous page!" action="options.xhtml"/></p>
+                
+                
+            </h:form>
+        </f:view>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,17 @@
+/* 
+    Document   : mystyle
+    Created on : May 4, 2011, 8:41:15 AM
+    Author     : gbarlas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.even-row {background-color: bisque}
+.odd-row {background-color: coral}
+h1 {font-family:  serif; font-size: 72pt}
+

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>New Game Entry</title>
+    </h:head>
+    <h:body>
+        <f:view>           
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Name"/> <h:inputText id="namebox" value="#{creategame.name}"/> 
+                    <h:outputText value="GameType"/> <h:inputText id="typebox" value="#{creategame.gameType}"/> 
+                    <h:outputText value="Condition"/> <h:inputText id="conditionbox" value="#{creategame.condition}"/> 
+                    <h:outputText value="Image File"/> <h:inputText id="imageBox" value="#{creategame.imageFile}"/> 
+                    <h:outputText value="Price"/> <h:inputText id="priceBox" value="#{creategame.price}">
+                        <f:validateDoubleRange minimum="0" />
+                    </h:inputText>
+                    <h:outputText value="Your Username:"/> <h:inputText id="userBox" value="#{creategame.username}"/>
+                   
+                    
+                     
+                </h:panelGrid>
+                <h:commandButton value="Save new Game" action="#{creategame.saveGame()}"/>
+                <h:commandButton value="Cancel" action="options.xhtml"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

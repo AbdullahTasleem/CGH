@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <f:view>
+            <h:form> 
+            <c:set var="result" scope="session" value="#{loginInfo.isvalid}" />
+            <c:if test="${result == false}">
+                Incorrect Credentials: Please try again
+                 <h:commandButton value="Back to Login" action="Login.xhtml"/>
+            </c:if>
+            <c:if test="${result == true}">
+                    
+                     <p><h:commandButton value="Proceed to Gaming site" action="options.xhtml"/></p>
+                
+            </c:if>
+
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

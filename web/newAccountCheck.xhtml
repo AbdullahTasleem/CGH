@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>account confirmation page</title>
+    </h:head>
+    <h:body>
+      
+        <f:view>
+            <h:form> 
+            <c:if test= "#{newAccount.makeaccount eq true}">
+                    Thank you for creating an Account !
+                    To login, please return to the home page
+             </c:if>
+                <c:if test= "#{newAccount.valid eq false}">
+                    Error Creating page, PLease try again by pressing the new account button
+             </c:if>
+                <p><h:commandButton value="Create New Account" action="createNewAccount.xhtml"/></p>
+                <p><h:commandButton value="Back to home page" action="homePage.xhtml"/></p>
+                
+            </h:form>
+           
+        </f:view>
+    </h:body>
+</html>

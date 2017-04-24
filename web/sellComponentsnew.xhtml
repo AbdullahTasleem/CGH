@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>New component</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form> 
+                <h:outputText id="typename" value="Type Name: "/> <h:inputText value="#{createcomp.newTypename}"/>
+                <h:message for="typename"></h:message>
+        <h:outputText value="Short Type Description: "/> <h:inputText value="#{createcomp.newTypeDescription}"/>
+        <h:outputText value="Number of specs you want to add: "/> <h:inputText value="#{createcomp.num}"/>
+        <h:commandButton value="Go!" action="#{comp.reload()}" />
+        
+        <p></p>
+        <table border="1"  title="HI">
+               <caption>Specs</caption>
+               <tr>
+                        <th>Specification's Name</th>
+                        <th>Specification's Value</th>
+                        <th>Value Measured in?</th>
+                        </tr>
+               <c:forEach begin="1" end="#{createcomp.num}">  
+                    <tr>
+                    <td><h:inputText value="#{createcomp.tempLabel}"/></td>  <td><h:inputText value="#{createcomp.tempValue}"/></td>
+                    <td><h:inputText value="#{createcomp.tempDes}"/></td>
+                    </tr>
+                </c:forEach>
+        </table>
+
+        <h:commandButton value="Go!" action="verifyNewComponent.xhtml" />
+        <p><h:commandButton value="Back to option Page" action="options.xhtml"/></p>
+        </h:form>
+           
+        </f:view>
+    </h:body>
+</html>
+

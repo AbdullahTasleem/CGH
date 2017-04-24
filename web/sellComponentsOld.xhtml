@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Add a component</title>
+        
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form> 
+                <h:outputText value="Type Name: "/> <h:inputText value="#{createcomp.newTypename}"/>
+                <h:outputText value="Short Type Description: "/> <h:inputText value="#{createcomp.newTypeDescription}"/>
+        <c:forEach var="temp" items="#{createcomp.oldTypeAttributes}" >         
+            <p><h:outputText value="#{temp}"/> <h:inputText value="#{createcomp.temp}"/> </p>
+                </c:forEach>
+                <h:commandButton value="Add component to the site" action="#{createcomp.saveComponent()}"/>
+         </h:form>
+           
+        </f:view>
+
+    </h:body>
+</html>

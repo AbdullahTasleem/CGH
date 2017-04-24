@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Browse Games</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+         <script type="text/javascript" src="scripts/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript">
+            function notify() {
+                alert("A notification has been sent to the owner, he will contact you soon #{loginInfo.username}");
+            }
+       </script>
+    </h:head>
+    <h:body>
+        
+   
+        <f:view>
+            <h:form>
+                <h:commandButton value="Back to previous page" action="options.xhtml"/>
+                 <h:outputText value="Search/See Reviews for a game:"/> <h:inputText id="gamename" value="#{allgames.gamename}"/> <h:commandButton value="Go!" action="gameReviews.xhtml"/>
+                <h3>Games available to buy:</h3>
+                <h:dataTable  var="game" value="#{allgames.games}" 
+                              rowClasses="even-row, odd-row">
+                    <h:column>
+                        <f:facet name="header">Picture</f:facet>
+                        <h:graphicImage value="images/#{game.imageFile}" style="width:100px"/>
+                    </h:column>
+                   
+                     <h:column>
+                        <f:facet name="header">Name</f:facet>
+                        <h:outputText value="#{game.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Type</f:facet>
+                        <h:outputText value="#{game.gameType}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Price</f:facet>
+                        <h:outputText value="#{game.price}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Condition</f:facet>
+                        <h:outputText value="#{game.condition}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Buy"  onclick="notify()">
+                            <f:param name="buyGame" value="#{game.productID}" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+                
+                
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

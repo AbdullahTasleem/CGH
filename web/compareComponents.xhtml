@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body><f:view>
+            <h:form>
+        <p><h:commandButton value="Go to previous page!" action="componentTypesAttributes.xhtml"/></p>
+        </h:form>
+           </f:view>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <table border="1"  style="float: left;" title="HI">
+               <caption>#{comp.typename}</caption>
+                <c:forEach var="temp" items="#{comp.typesByComponent}" >      
+                     <tr>
+                        <th>#{temp.name}</th>
+                        <td>#{temp.attdescription}</td>
+                        </tr>
+                   
+                </c:forEach>
+        </table>
+        
+        
+         <table border="1"  style="float: next;">
+               <caption>#{comp.typename2}</caption>
+                <c:forEach var="temp" items="#{comp.typesByComponent2}" >      
+                     <tr>
+                        <th>#{temp.name}</th>
+                        <td>#{temp.attdescription}</td>
+                        </tr>
+                   
+                </c:forEach>
+        </table>
+        <p></p>
+  
+           
+                     
+                   <script type="text/javascript">
+                   google.charts.load('current', {'packages':['bar']});
+                   google.charts.setOnLoadCallback(drawChart);
+                   function drawChart() {
+                     var data = google.visualization.arrayToDataTable([
+
+                       ['#{comp.typenameForGraph}', '#{comp.typename}', '#{comp.typename2}'],
+                       ['#{comp.graphlabel}', #{comp.valueForGraph}  ,#{comp.value2ForGraph}]
+
+                     ]);
+
+                     var options = {
+                       chart: {
+                         title: 'Comparison Graph',
+                         subtitle: '#{comp.typename}, #{comp.typename2} => #{comp.typenameForGraph} comparison graph',
+                       },
+                       bars: 'horizontal' // Required for Material Bar Charts.
+                     };
+
+                     var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+                     chart.draw(data, options);
+                   }
+                 </script>
+               <div id="barchart_material" style="width: 700px; height: 300px;"></div>
+        
+ 
+    </h:body>
+</html>
+
